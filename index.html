@@ -230,29 +230,22 @@ let platosDisponibles = [
 let platos = [];
 
 //ex1
-
+//declarar variables 
 const input = document.getElementById("input");
 const barra = document.getElementById("barra-superior");
-
+//llamar a la funcion
 input.addEventListener("input", A);
-
+//funcion
 function A() {
   barra.innerHTML = input.value;
 }
 
 //ex2
-
+//declarar constante de select
 const select = document.querySelector("#select");
-let L = document.querySelector(".lunes");
-let M = document.querySelector(".martes");
-let X = document.querySelector(".miercoles");
-let J = document.querySelector(".jueves");
-let V = document.querySelector(".viernes");
-let S = document.querySelector(".sabado");
-let D = document.querySelector(".domingo");
-
+//llamar constante a funcion con evento "change"
 select.addEventListener("change", B);
-
+//aqui se pinta sobre html el valor de select e input
 function B() {
   barra.innerHTML = input.value + " -- " + select.value;
 }
@@ -261,46 +254,48 @@ function B() {
 const seccionCarta = document.querySelector("#seccionCarta");
 
 function Platos(platosDisponibles) {
-  const div = document.querySelector("#contenedorCarta");
+  const div = document.querySelector("#contenedorCarta"); //constante del contenedor
   console.log(div);
-  div.innerHTML = "";
-  const seccionCarta = document.querySelector("#seccionCarta");
-  for (let i = 0; i < platosDisponibles.length; i++) {
-    const g = platosDisponibles[i];
+  div.innerHTML = ""; //limpiar antes de pintar
+  const seccionCarta = document.querySelector("#seccionCarta"); //carta
+  for (let i = 0; i < platosDisponibles.length; i++) { //for bucle, i recuenta lo largo que es el array con [array].length
+    const g = platosDisponibles[i]; //valores
     div.innerHTML += `
-      <h2>${g.nombre}</h2>
+      <h2>${g.nombre}</h2> 
       <p>${g.descripcion}</p>
       <p>Precio: ${g.precio}</p>
     `;
 
-    seccionCarta.appendChild(div);
+    seccionCarta.appendChild(div); //aplicar lo anterior
   }
 }
 
-Platos(platosDisponibles);
+Platos(platosDisponibles); //llamar a la funcion
 
 //ex4
-
+//declarar constantes elementos
 const btn = document.querySelector("#btnAgregar");
 const btn1 = document.querySelector("#btnVaciar");
 console.log(btn);
 console.log(btn1);
+
+
 let carta = document.querySelector("#seccionCarta");
 
 btn1.addEventListener("click", Vaciar);
-
+//funcion para vaciar
 function Vaciar() {
-  platos.innerHTML = " ";
-  console.log(platos);
-  carta.classList.add("carta-vacia");
+  platos.innerHTML = " "; //"platos" se vacía con espacio
+  console.log(platos); 
+  carta.classList.add("carta-vacia"); //añadir clase
 }
 
 //ex5
-
+//declarar constantes
 const select2 = document.querySelector("#selectorPlatos");
 const btn2 = document.querySelector("btnAgregar");
 const input2 = document.querySelector("#selectorPlatos");
-
+// bucle for para añadir platos. p es el numero que recuenta el array
 for (let p = 0; p > select2; p++) {
   AfegirPlato.innerHTML = `
     <h3>${platosDisponibles.tipo}
@@ -309,9 +304,9 @@ for (let p = 0; p > select2; p++) {
 }
 
 //ex6
-
+//funcion para llamar imagenes
 function Ñ(platosDisponibles) {
-  imagenPlato = platosDisponibles;
+  imagenPlato = platosDisponibles; //
 
   imagenPlato[0].innerHTML += `
   <img src="ensalada.jpg">
